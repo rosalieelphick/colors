@@ -98,12 +98,12 @@ $(function(){
     function createPalette(orderInArray) {
         let paletteContainer = `
                     <div class="paletteContainer">
-                        <div class="palette palette${orderInArray}">
+                        <div class="palette palette${orderInArray}" id="${orderInArray}">
                             <div class='colorContainer colorContainer0'></div>
                             <div class='colorContainer colorContainer1'></div>
                             <div class='colorContainer colorContainer2'></div>
                         </div>
-                        <button class="add"> add another color</button>
+                        <button class="add add${orderInArray}"> add another color</button>
                     </div>`
         $(".container").append(paletteContainer);
     }
@@ -122,27 +122,30 @@ $(function(){
         }
     }
 
-
     let addCount = 0;
 
     $(".container").on("click", ".add", function () {
-        addCount = addCount + 1;
-
         let selectedPalette = $(this).siblings(".palette");
-
-        console.log(selectedPalette)
+        let paletteId = $(selectedPalette).attr("id");
+        addColors(selectedPalette, paletteId);
         
-        console.log(addCount)
-
-        if (addCount == 1) {
-            $(selectedPalette).append("<div class='colorContainer colorContainer3'></div>");
-            $(".colorContainer3").css("background-color", finalArray[0].colors[3]);
-        } else if (addCount == 2) {
-            $(selectedPalette).append("<div class='colorContainer colorContainer4'></div>");
-            $(".colorContainer4").css("background-color", finalArray[0].colors[4]);
-        }
-
     });
+
+
+    function addColors (targetPalette, idNumber) {
+        console.log("clicked");
+        addCount = addCount + 1;
+        // if the class of the button corresponds to the id
+        // console.log(paletteId)
+        if (addCount == 1) {
+            $(targetPalette).append("<div class='colorContainer colorContainer3'></div>");
+            $(".colorContainer3").css("background-color", finalArray[idNumber].colors[3]);
+        } else if (addCount == 2) {
+            $(targetPalette).append("<div class='colorContainer colorContainer4'></div>");
+            $(".colorContainer4").css("background-color", finalArray[idNumber].colors[4]);
+        }
+    }
+    
 
 
 
