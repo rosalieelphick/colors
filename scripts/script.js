@@ -58,7 +58,6 @@ $(function(){
         }
 
     ]
-
     
     //  get temperature selection and make new array with just correct temperature
     $(".temp-button").on("click", function(){
@@ -75,11 +74,18 @@ $(function(){
     // get theme selection and create final array with both temp and theme
     $(".theme-button").on("click", function(){
         const theme = $(this).attr("id");
-        getThemeSelection(theme);
+        submitButton(theme);
     })
 
+    function submitButton(theme) {
+        $(".submit-button").on("click", function () {
+            $(".container").empty();
+            createFinalArray(theme);
+        })
+    }
+
     // create final array with just the required palettes
-    function getThemeSelection(themeSelection) {
+    function createFinalArray(themeSelection) {
 
         finalArray = tempArray.filter(function(item){
             return item[themeSelection];
@@ -103,8 +109,9 @@ $(function(){
                             <div class='colorContainer colorContainer1'></div>
                             <div class='colorContainer colorContainer2'></div>
                         </div>
-                        <button class="add add${orderInArray}"> add another color</button>
-                        <button class="subtract"> subtract color</button>
+                        <button class="add"> add another color</button>
+                        <button class="subtract">subtract color</button>
+                        <button class="getColors">get color names</button>
                     </div>`
         $(".container").append(paletteContainer);
         $(".subtract").css("display", "none");
@@ -112,17 +119,31 @@ $(function(){
 
     // this defines what the colors are 
     // and adds them to the dom
+
     function defineColors(orderInArray) {
 
-        // color0 = finalArray[orderInArray].colors[0];
-        // color1 = finalArray[orderInArray].colors[1];
-        // color2 = finalArray[orderInArray].colors[2];
+        color0 = finalArray[orderInArray].colors[0];
+        color1 = finalArray[orderInArray].colors[1];
+        color2 = finalArray[orderInArray].colors[2];
+
+        console.log(color0, color1, color2)
 
         for (let i = 0; i < 3; i = i + 1) {
             $(`.palette${orderInArray}`).find(`.colorContainer${i}`).css("background-color", finalArray[orderInArray].colors[i]);
-            // $(".palette1").find(`.colorContainer${i}`).css("background-color", finalArray[1].colors[i]);
         }
     }
+
+    $(".container").on("click", ".getColors", function(){
+
+        let selectedPalette = $(this).siblings(".palette");
+        let colorValues = selectedPalette.children();
+        let colorLength = selectedPalette.children().length
+        
+        for (let i = 0; i < colorLength; i = i + 1) {
+            let colorName = colorValues[i]
+            console.log($(colorName).css("background-color"))
+        }
+    });
 
 
     $(".container").on("click", ".add", function () {
@@ -175,6 +196,5 @@ $(function(){
         }
 
     }
-
 
 });
