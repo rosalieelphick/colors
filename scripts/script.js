@@ -12,7 +12,7 @@ $(function(){
                 "pink",
                 "yellow",
                 "peachpuff",
-                "black",
+                "mint",
                 "black"
             ]  
         },
@@ -104,8 +104,10 @@ $(function(){
                             <div class='colorContainer colorContainer2'></div>
                         </div>
                         <button class="add add${orderInArray}"> add another color</button>
+                        <button class="subtract"> subtract color</button>
                     </div>`
         $(".container").append(paletteContainer);
+        $(".subtract").css("display", "none");
     }
 
     // this defines what the colors are 
@@ -122,34 +124,57 @@ $(function(){
         }
     }
 
-    let addCount = 0;
 
     $(".container").on("click", ".add", function () {
         let selectedPalette = $(this).siblings(".palette");
         let paletteId = $(selectedPalette).attr("id");
-        addColors(selectedPalette, paletteId);
-        
+        let colorNumber = selectedPalette.children().length;
+
+        addColors(selectedPalette, paletteId, colorNumber);
+    });
+
+    $(".container").on("click", ".subtract", function () {
+        let selectedPalette = $(this).siblings(".palette");
+        let colorNumber = selectedPalette.children().length;
+
+        deleteColors(selectedPalette, colorNumber);
     });
 
 
-    function addColors (targetPalette, idNumber) {
-        console.log("clicked");
-        addCount = addCount + 1;
-        // if the class of the button corresponds to the id
-        // console.log(paletteId)
-        if (addCount == 1) {
-            $(targetPalette).append("<div class='colorContainer colorContainer3'></div>");
-            $(".colorContainer3").css("background-color", finalArray[idNumber].colors[3]);
-        } else if (addCount == 2) {
-            $(targetPalette).append("<div class='colorContainer colorContainer4'></div>");
-            $(".colorContainer4").css("background-color", finalArray[idNumber].colors[4]);
+    function addColors (targetPalette, idNumber, numberOfColors) {
+
+        if (numberOfColors == 3) {
+            $(targetPalette).siblings(".subtract").css("display", "block");
         }
-    }
+
+        if (numberOfColors === 3) {
+            $(targetPalette).append("<div class='colorContainer colorContainer3'></div>");
+            $(targetPalette).find(".colorContainer3").css("background-color", finalArray[idNumber].colors[3]);
+                    
+        } else if (numberOfColors === 4) {
+            $(targetPalette).append("<div class='colorContainer colorContainer4'></div>");
+            $(targetPalette).find(".colorContainer4").css("background-color", finalArray[idNumber].colors[4]);
+            $(targetPalette).siblings(".add").css("display", "none");
+        }
+
+    };
+
+    function deleteColors (targetPalette, numberOfColors) {
     
+        if (numberOfColors === 5) {
+            $(targetPalette).find(".colorContainer4").remove();
+            $(targetPalette).siblings(".add").css("display", "block");
+            
+        } else if (numberOfColors === 4) {
+            $(targetPalette).find(".colorContainer3").remove(); 
+            $(targetPalette).siblings(".subtract").css("display", "none");
+        }
 
+        if (numberOfColors == 4) {
+            $(targetPalette).siblings(".add").css("display", "block");
+        }
 
-
-
+    }
 
 
 });
