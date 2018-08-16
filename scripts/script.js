@@ -37,6 +37,24 @@ $(function(){
             ]
         },
         {
+            pastel: true,
+            neutral: true,
+            colors: [
+                "grey",
+                "green",
+                "grey"
+            ]
+        },
+        {
+            pastel: true,
+            neutral: true,
+            colors: [
+                "grey",
+                "green",
+                "grey"
+            ]
+        },
+        {
             dark: true,
             warm: true,
             colors: [
@@ -92,7 +110,6 @@ $(function(){
         })
 
         finalArray.forEach(function(item){
-            $(".container").append("hello")
             arrayOrder = finalArray.indexOf(item);
             createPalette(arrayOrder);
             defineColors(arrayOrder);
@@ -109,12 +126,12 @@ $(function(){
                             <div class='colorContainer colorContainer1'></div>
                             <div class='colorContainer colorContainer2'></div>
                         </div>
-                        <button class="add"> add another color</button>
-                        <button class="subtract">subtract color</button>
                         <button class="getColors">get color names</button>
+                        <button class="subtract">remove color</button>
+                        <button class="add">add color</button>
                     </div>`
         $(".container").append(paletteContainer);
-        $(".subtract").css("display", "none");
+        $(".subtract").addClass("button-disabled");
     }
 
     // this defines what the colors are 
@@ -165,7 +182,8 @@ $(function(){
     function addColors (targetPalette, idNumber, numberOfColors) {
 
         if (numberOfColors == 3) {
-            $(targetPalette).siblings(".subtract").css("display", "block");
+            // $(targetPalette).siblings(".subtract").css("background-color", "pink");
+            $(targetPalette).siblings(".subtract").removeClass("button-disabled");
         }
 
         if (numberOfColors === 3) {
@@ -175,7 +193,8 @@ $(function(){
         } else if (numberOfColors === 4) {
             $(targetPalette).append("<div class='colorContainer colorContainer4'></div>");
             $(targetPalette).find(".colorContainer4").css("background-color", finalArray[idNumber].colors[4]);
-            $(targetPalette).siblings(".add").css("display", "none");
+            // $(targetPalette).siblings(".add").css("background-color", "grey");
+            $(targetPalette).siblings(".add").addClass("button-disabled");
         }
 
     };
@@ -184,17 +203,27 @@ $(function(){
     
         if (numberOfColors === 5) {
             $(targetPalette).find(".colorContainer4").remove();
-            $(targetPalette).siblings(".add").css("display", "block");
+            // $(targetPalette).siblings(".add").css("background-color", "pink");
+            $(targetPalette).siblings(".add").removeClass("button-disabled");
             
         } else if (numberOfColors === 4) {
             $(targetPalette).find(".colorContainer3").remove(); 
-            $(targetPalette).siblings(".subtract").css("display", "none");
+            // $(targetPalette).siblings(".subtract").css("background-color", "grey");
+            $(targetPalette).siblings(".subtract").addClass("button-disabled");
         }
 
         if (numberOfColors == 4) {
-            $(targetPalette).siblings(".add").css("display", "block");
+            // $(targetPalette).siblings(".add").css("background-color", "pink");
+            $(targetPalette).siblings(".add").removeClass("button-disabled");
         }
 
     }
+
+    // STRETCH GOALS
+        // make multi line palette insert cleaner (use jquery method)
+        // name spacing
+        // clean up everything
+        // add accent color button
+        // get hex codes from rgba
 
 });

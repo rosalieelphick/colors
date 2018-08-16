@@ -1,0 +1,112 @@
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.selector-section,
+.palette-section {
+    // border: solid 2px maroon;
+}
+
+// GENERAL BUTTONS
+
+button {
+    background-color: white;
+    border: none;
+    border: solid 1px black;
+    padding: 10px 20px;
+}
+
+.button-disabled {
+    background-color: whitesmoke;
+    color: grey;
+    border: solid 1px grey;
+    padding: 10px 20px;
+}
+
+// SELECTOR SECTION
+.selector-section {
+    flex-basis: 320px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.button-holder {
+    width: 320px;
+    position: fixed;
+}
+
+.temp-buttons,
+.theme-buttons {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    & button {
+        flex-basis: calc(33.33% - 10px);
+        flex-grow: 0;
+        flex-shrink: 0;
+        margin: 5px;
+    }
+    & h3 {
+        flex-basis: 100%;
+        text-align: center;
+    }
+}
+
+.submit-button {
+    width: calc(100% - 10px);
+    margin: 20px 5px 5px 5px;
+    background-color: pink;
+}
+
+// PALETTE SECTION
+
+.palette-section {
+    flex-basis: 300px;
+    flex-grow: 1;
+    display: flex;
+    margin-left: 30px;
+    margin-top: 66px;
+}
+
+.palette-section .container {
+    display: flex;
+    width: 100%;
+}
+
+.container {
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.paletteContainer {
+    width: 100%;
+    margin-bottom: 30px;
+    position: relative;
+
+}
+
+.palette {
+    height: 300px;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.colorContainer {
+    flex-basis: 10px;
+    flex-grow: 1;
+    height: 300px;
+}
+
+button.getColors {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+
+
+
+

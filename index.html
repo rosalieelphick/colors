@@ -6,66 +6,73 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Colors</title>
 
-    <style>
-    
-    .temp-buttons,
-    .theme-buttons {
-        border: solid 1px red;
-        padding: 10px;
-        margin: 50px;
-        display: flex;
-        justify-content: space-around;
-    }
+    <link href="https://fonts.googleapis.com/css?family=Chivo|Overpass:300" rel="stylesheet"> 
+    <link rel="stylesheet" href="styles/style.css">
 
-    .color {
-        width: 100px;
-        height: 200px;
-    }
-
-    .palette {
-        width: 300px;
-        height: 200px;
-        border: solid 1px red;
-        display: flex;
-        margin: 20px;
-    }
-
-    .colorContainer {
-        flex-basis: 10px;
-        flex-grow: 1;
-        height: 200px;
-        border: solid 1px blue;
-    }
-
-    .red {
-        border: solid 2px red;
-    }
-
-
-    </style>
 </head>
 <body>
 
-    <div class="temp-buttons">
-        <button class="temp-button" id="warm">warm</button>
-        <button class="temp-button" id="cool">cool</button>
+    <div class="wrapper">
+
+        <header class="header">
+            <h1>color palette generator</h1>
+            <h2>some subheading!</h2>
+        </header>
+
+        <main class="main-content">
+
+            <div class="selector-section">
+
+                <div class="button-holder">
+                    <div class="temp-buttons">
+                        <h3>pick this option</h3>
+                        <button class="temp-button" id="warm">warm</button>
+                        <button class="temp-button" id="neutral">neutral</button>
+                        <button class="temp-button" id="cool">cool</button>
+                        
+                    </div>
+                    
+                    <div class="theme-buttons">
+                        <h3>then pick this option</h3>
+                        <button class="theme-button" id="pastel">pastel</button>
+                        <button class="theme-button" id="dark">dark</button>
+                        <button class="theme-button" id="option3">option</button>
+                        <button class="theme-button" id="option4">idk</button>
+                        <button class="theme-button" id="option5">hello</button>
+                        <button class="theme-button" id="option6">idk</button>
+
+                    </div>
+                    
+                    <button class="submit-button">generate palette</button>
+                </div>
+          
+            </div>
+
+            <div class="palette-section">
+                <div class="container">
+
+                <!-- <div class="paletteContainer">
+                        <div class="palette">
+
+                        </div>
+                    </div> -->
+
+                </div>
+            </div>
+
+           
+            
+
+
+        </main>
+
+        
+
+        
+
+        
+
     </div>
-
-    <div class="theme-buttons">
-        <button class="theme-button" id="pastel">pastel</button>
-        <button class="theme-button" id="dark">dark</button>
-    </div>
-
-    <button class="submit-button">generate palette</button>
-    <div class="container">
-
-    </div>
-
-    <!-- <div class="palette">
-        <div class="color color-one"></div>
-        <div class="color color-two"></div>
-        <div class="color color-three"></div>
-    </div> -->
 
     <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
 
