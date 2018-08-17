@@ -1,86 +1,179 @@
 $(function(){
-    
 
-    //create array with multiple color objects
-
-    // want to be able to go through full list of different palettes and check for different conditions
     const palettes = [
+        // pastel palettes
         {
             pastel: true,
-            warm: true,
+            cool: true,
             colors: [
-                "pink",
-                "yellow",
-                "peachpuff",
-                "mint",
-                "black"
-            ]  
-        },
-        {
-            pastel: true,
-            warm: true,
-            colors: [
-                "red",
-                "yellow",
-                "peachpuff",
-                "red",
-                "red"
+                "#b09cbf",
+                "#b5b2d4",
+                "#d4ebf0",
+                "#ede8ed",
+                "#ffd6e3"
             ]
         },
         {
             pastel: true,
             cool: true,
             colors: [
-                "paleturquoise",
-                "lightcyan",
-                "palegreen"
+                "#cdc6d6",
+                "#e8cfd5",
+                "#b9b9d1",
+                "#8d9ac6",
+                "#eedad9"
             ]
         },
         {
             pastel: true,
-            neutral: true,
-            colors: [
-                "grey",
-                "green",
-                "grey"
-            ]
-        },
-        {
-            pastel: true,
-            neutral: true,
-            colors: [
-                "grey",
-                "green",
-                "grey"
-            ]
-        },
-        {
-            dark: true,
             warm: true,
             colors: [
-                "darkred",
-                "darkviolet",
-                "crimson"
+                "#e3c9c9",
+                "#f4e7e7",
+                "#eedbdb",
+                "#cecbcb",
+                "#cbdadb"
             ]
         },
         {
-            dark: true,
-            cool: true,
+            pastel: true,
+            warm: true,
             colors: [
-                "midnightblue",
-                "indigo",
-                "darkolivegreen",
-                "red",
-                "yellow"
+                "#f2ddde",
+                "#d1b9d6",
+                "#b195c4",
+                "#cc95c1",
+                "#92a8d1"
+            ]
+        },
+        {
+            pastel: true,
+            warm: true,
+            colors: [
+                "#d7ece3",
+                "#efd0d6",
+                "#ceb5ef",
+                "#c69fb1",
+                "#9b868d"
+            ]
+        },
+        {
+            pastel: true,
+            neutral: true,
+            colors: [
+                "#dec3c3",
+                "#e7d3d3",
+                "#f0e4e4",
+                "#f9f4f4",
+                "#ffffff"
+            ]
+        },
+        {
+            pastel: true,
+            neutral: true,
+            colors: [
+                "#f3bbae",
+                "#fcdccf",
+                "#ebeae5",
+                "#aedfdb",
+                "#75c8cc"
+            ]
+        },
+        {
+            pastel: true,
+            neutral: true,
+            colors: [
+                "#a2adbc",
+                "#d9e2e1",
+                "#f4f3ee",
+                "#f6f4da",
+                "#df9496"
             ]
         }
-
+        
     ]
+    
+
+
+    // const palettes = [
+    //     {
+    //         pastel: true,
+    //         warm: true,
+    //         colors: [
+    //             "pink",
+    //             "yellow",
+    //             "peachpuff",
+    //             "mint",
+    //             "black"
+    //         ]  
+    //     },
+    //     {
+    //         pastel: true,
+    //         warm: true,
+    //         colors: [
+    //             "red",
+    //             "yellow",
+    //             "peachpuff",
+    //             "red",
+    //             "red"
+    //         ]
+    //     },
+    //     {
+    //         pastel: true,
+    //         cool: true,
+    //         colors: [
+    //             "paleturquoise",
+    //             "lightcyan",
+    //             "palegreen"
+    //         ]
+    //     },
+    //     {
+    //         pastel: true,
+    //         neutral: true,
+    //         colors: [
+    //             "grey",
+    //             "green",
+    //             "grey"
+    //         ]
+    //     },
+    //     {
+    //         pastel: true,
+    //         neutral: true,
+    //         colors: [
+    //             "grey",
+    //             "green",
+    //             "grey"
+    //         ]
+    //     },
+    //     {
+    //         dark: true,
+    //         warm: true,
+    //         colors: [
+    //             "darkred",
+    //             "darkviolet",
+    //             "crimson"
+    //         ]
+    //     },
+    //     {
+    //         dark: true,
+    //         cool: true,
+    //         colors: [
+    //             "midnightblue",
+    //             "indigo",
+    //             "darkolivegreen",
+    //             "red",
+    //             "yellow"
+    //         ]
+    //     }
+
+    // ]
     
     //  get temperature selection and make new array with just correct temperature
     $(".temp-button").on("click", function(){
         const temp = $(this).attr("id");
+        console.log(this)
         getTemperatureSelection(temp);
+        
     });
 
     function getTemperatureSelection(temperatureSelection) {
@@ -126,9 +219,9 @@ $(function(){
                             <div class='colorContainer colorContainer1'></div>
                             <div class='colorContainer colorContainer2'></div>
                         </div>
-                        <button class="getColors">get color names</button>
                         <button class="subtract">remove color</button>
                         <button class="add">add color</button>
+
                     </div>`
         $(".container").append(paletteContainer);
         $(".subtract").addClass("button-disabled");
@@ -143,30 +236,45 @@ $(function(){
         color1 = finalArray[orderInArray].colors[1];
         color2 = finalArray[orderInArray].colors[2];
 
-        console.log(color0, color1, color2)
+        // console.log(color0, color1, color2)
+        // let colorName;
 
         for (let i = 0; i < 3; i = i + 1) {
             $(`.palette${orderInArray}`).find(`.colorContainer${i}`).css("background-color", finalArray[orderInArray].colors[i]);
+
+            // colorName = finalArray[orderInArray].colors[i];
         }
     }
 
-    $(".container").on("click", ".getColors", function(){
-
-        let selectedPalette = $(this).siblings(".palette");
-        let colorValues = selectedPalette.children();
-        let colorLength = selectedPalette.children().length
-        
-        for (let i = 0; i < colorLength; i = i + 1) {
-            let colorName = colorValues[i]
-            console.log($(colorName).css("background-color"))
+    function rgb2hex(rgb, currentContainer) {
+        rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+        function hex(x) {
+            return ("0" + parseInt(x).toString(16)).slice(-2);
         }
-    });
+        colorNameDisplay = "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+        console.log(colorNameDisplay)
+        
+        $(currentContainer).html(`<div class="color-name">${colorNameDisplay}</div>`)
 
+    }
+
+
+    $(".container").on("mouseover", ".colorContainer", function(){
+        let colorName = $(this).css("background-color");
+        let colorContainer = $(this);
+        rgb2hex(colorName, colorContainer);
+    })
+
+    $(".container").on("mouseout", ".colorContainer", function(){
+        $(this).find(".color-name").empty();
+    })
 
     $(".container").on("click", ".add", function () {
         let selectedPalette = $(this).siblings(".palette");
         let paletteId = $(selectedPalette).attr("id");
         let colorNumber = selectedPalette.children().length;
+
+        $(this).find(".color-values").find(".getColors").append("hello");
 
         addColors(selectedPalette, paletteId, colorNumber);
     });
@@ -175,9 +283,10 @@ $(function(){
         let selectedPalette = $(this).siblings(".palette");
         let colorNumber = selectedPalette.children().length;
 
+        $(this).find(".color-values").empty();
+
         deleteColors(selectedPalette, colorNumber);
     });
-
 
     function addColors (targetPalette, idNumber, numberOfColors) {
 
@@ -218,12 +327,5 @@ $(function(){
         }
 
     }
-
-    // STRETCH GOALS
-        // make multi line palette insert cleaner (use jquery method)
-        // name spacing
-        // clean up everything
-        // add accent color button
-        // get hex codes from rgba
 
 });

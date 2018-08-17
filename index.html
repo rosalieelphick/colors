@@ -24,24 +24,44 @@
             <div class="selector-section">
 
                 <div class="button-holder">
-                    <div class="temp-buttons">
-                        <h3>pick this option</h3>
-                        <button class="temp-button" id="warm">warm</button>
-                        <button class="temp-button" id="neutral">neutral</button>
-                        <button class="temp-button" id="cool">cool</button>
-                        
-                    </div>
-                    
-                    <div class="theme-buttons">
-                        <h3>then pick this option</h3>
-                        <button class="theme-button" id="pastel">pastel</button>
-                        <button class="theme-button" id="dark">dark</button>
-                        <button class="theme-button" id="option3">option</button>
-                        <button class="theme-button" id="option4">idk</button>
-                        <button class="theme-button" id="option5">hello</button>
-                        <button class="theme-button" id="option6">idk</button>
+                    <form action="" class="temp-buttons">
 
-                    </div>
+                        <h3>pick this option!</h3>
+
+                        <input type="radio" class="temp-button visibility-hidden" id="warm" value="warm" name="temp">
+                        <label for="warm">warm</label>
+                        
+                        <input type="radio" class="temp-button visibility-hidden" id="neutral" value="neutral" name="temp">
+                        <label for="neutral">neutral</label>
+
+                        <input type="radio" class="temp-button visibility-hidden" id="cool" value="cool" name="temp">
+                        <label for="cool">cool</label>
+
+                    </form>
+
+                    <form action="" class="theme-buttons">
+
+                        <h3>then pick this option!</h3>
+
+                        <input type="radio" class="theme-button visibility-hidden" id="pastel" value="pastel" name="theme">
+                        <label for="pastel">pastel</label>
+                        
+                        <input type="radio" class="theme-button visibility-hidden" id="dark" value="dark" name="theme">
+                        <label for="dark">dark</label>
+                        
+                        <input type="radio" class="theme-button visibility-hidden" id="earthy" value="earthy" name="theme">
+                        <label for="earthy">earthy</label>
+
+                        <input type="radio" class="theme-button visibility-hidden" id="clean" value="clean" name="theme">
+                        <label for="clean">clean</label>
+                        
+                        <input type="radio" class="theme-button visibility-hidden" id="bright" value="bright" name="theme">
+                        <label for="bright">bright</label>
+
+                        <input type="radio" class="theme-button visibility-hidden" id="muted" value="muted" name="theme">
+                        <label for="muted">muted</label>
+
+                    </form>
                     
                     <button class="submit-button">generate palette</button>
                 </div>

@@ -4,18 +4,15 @@
     justify-content: space-between;
 }
 
-.selector-section,
-.palette-section {
-    // border: solid 2px maroon;
-}
-
 // GENERAL BUTTONS
 
-button {
+button,
+label {
     background-color: white;
     border: none;
     border: solid 1px black;
     padding: 10px 20px;
+    text-align: center;
 }
 
 .button-disabled {
@@ -23,6 +20,10 @@ button {
     color: grey;
     border: solid 1px grey;
     padding: 10px 20px;
+}
+
+.button-selected {
+    background-color: pink;
 }
 
 // SELECTOR SECTION
@@ -37,13 +38,16 @@ button {
     position: fixed;
 }
 
+
+
+
 .temp-buttons,
 .theme-buttons {
     width: 100%;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    & button {
+    & label {
         flex-basis: calc(33.33% - 10px);
         flex-grow: 0;
         flex-shrink: 0;
@@ -54,6 +58,11 @@ button {
         text-align: center;
     }
 }
+
+input[type="radio"]:checked+label {
+    background-color: pink;
+}
+
 
 .submit-button {
     width: calc(100% - 10px);
@@ -85,7 +94,7 @@ button {
     width: 100%;
     margin-bottom: 30px;
     position: relative;
-
+    text-align: right;
 }
 
 .palette {
@@ -103,9 +112,19 @@ button {
 button.getColors {
     position: absolute;
     right: 0;
-    bottom: 0;
 }
 
+.color-values {
+    width: 100px;
+    height: 50px;
+    border: solid 2px maroon;
+}
+
+.color-name {
+    background-color: dimgrey;
+    text-align: center;
+    color: white;
+}
 
 
 

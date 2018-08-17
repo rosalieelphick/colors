@@ -143,6 +143,16 @@ html {
   width: 80%;
   margin: 0 auto; }
 
+.visibility-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0; }
+
 .main-content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -153,17 +163,22 @@ html {
   -ms-flex-pack: justify;
   justify-content: space-between; }
 
-button {
+button,
+label {
   background-color: white;
   border: none;
   border: solid 1px black;
-  padding: 10px 20px; }
+  padding: 10px 20px;
+  text-align: center; }
 
 .button-disabled {
   background-color: whitesmoke;
   color: grey;
   border: solid 1px grey;
   padding: 10px 20px; }
+
+.button-selected {
+  background-color: pink; }
 
 .selector-section {
   -ms-flex-preferred-size: 320px;
@@ -185,8 +200,8 @@ button {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap; }
-  .temp-buttons button,
-  .theme-buttons button {
+  .temp-buttons label,
+  .theme-buttons label {
     -ms-flex-preferred-size: calc(33.33% - 10px);
     flex-basis: calc(33.33% - 10px);
     -webkit-box-flex: 0;
@@ -200,6 +215,9 @@ button {
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
     text-align: center; }
+
+input[type="radio"]:checked + label {
+  background-color: pink; }
 
 .submit-button {
   width: calc(100% - 10px);
@@ -235,7 +253,8 @@ button {
 .paletteContainer {
   width: 100%;
   margin-bottom: 30px;
-  position: relative; }
+  position: relative;
+  text-align: right; }
 
 .palette {
   height: 300px;
@@ -254,5 +273,14 @@ button {
 
 button.getColors {
   position: absolute;
-  right: 0;
-  bottom: 0; }
+  right: 0; }
+
+.color-values {
+  width: 100px;
+  height: 50px;
+  border: solid 2px maroon; }
+
+.color-name {
+  background-color: dimgrey;
+  text-align: center;
+  color: white; }
