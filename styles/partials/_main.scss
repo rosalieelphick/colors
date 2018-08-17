@@ -4,6 +4,11 @@
     justify-content: space-between;
 }
 
+header {
+    border-bottom: solid 2px black;
+    margin-bottom: 50px;
+}
+
 // GENERAL BUTTONS
 
 button,
@@ -11,15 +16,17 @@ label {
     background-color: white;
     border: none;
     border: solid 1px black;
-    padding: 10px 20px;
+    padding: 10px 15px;
     text-align: center;
+    transition: all 0.2s; 
 }
 
 .button-disabled {
     background-color: whitesmoke;
-    color: grey;
-    border: solid 1px grey;
-    padding: 10px 20px;
+    color: gainsboro;
+    border: solid 1px gainsboro;
+    padding: 10px 15px;
+    pointer-events: none;
 }
 
 .button-selected {
@@ -37,9 +44,6 @@ label {
     width: 320px;
     position: fixed;
 }
-
-
-
 
 .temp-buttons,
 .theme-buttons {
@@ -59,15 +63,33 @@ label {
     }
 }
 
-input[type="radio"]:checked+label {
-    background-color: pink;
+button:hover {
+    background-color: gainsboro;
 }
 
+label:hover {
+    background-color: gainsboro;
+}
+
+input[type="radio"]:checked+label {
+    background-color: #979aaa;
+    color: white;
+    letter-spacing: 1px;
+    font-weight: 400;
+
+}
 
 .submit-button {
     width: calc(100% - 10px);
     margin: 20px 5px 5px 5px;
-    background-color: pink;
+    background-color: gainsboro;
+    transition: all 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #979aaa;
+    letter-spacing: 1px;
+    color: white;
 }
 
 // PALETTE SECTION
@@ -90,7 +112,7 @@ input[type="radio"]:checked+label {
     flex-wrap: wrap;
 }
 
-.paletteContainer {
+.palette-container {
     width: 100%;
     margin-bottom: 30px;
     position: relative;
@@ -98,34 +120,30 @@ input[type="radio"]:checked+label {
 }
 
 .palette {
-    height: 300px;
+    height: 290px;
     display: flex;
     margin-bottom: 20px;
 }
 
-.colorContainer {
+.color-container {
     flex-basis: 10px;
     flex-grow: 1;
-    height: 300px;
-}
-
-button.getColors {
-    position: absolute;
-    right: 0;
-}
-
-.color-values {
-    width: 100px;
-    height: 50px;
-    border: solid 2px maroon;
+    height: 279px;
 }
 
 .color-name {
-    background-color: dimgrey;
+    width: 100%;
     text-align: center;
+    background-color: #979aaa;
     color: white;
+    padding: 5px 0;
+    opacity: 0;
+    transition: all 0.2s;
 }
 
+.color-visible {
+    opacity: 1;
+}
 
 
 

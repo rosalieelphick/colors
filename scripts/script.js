@@ -89,85 +89,212 @@ $(function(){
                 "#f6f4da",
                 "#df9496"
             ]
-        }
+        },
+        {
+            earthy: true,
+            warm: true,
+            colors: [
+                "#963a2f",
+                "#d58258",
+                "#ecb984",
+                "#fffee9",
+                "#a8a676"
+            ]
+        },
+        {
+            earthy: true,
+            warm: true,
+            colors: [
+                "#bf8333",
+                "#a76435",
+                "#f9ab44",
+                "#fbc274",
+                "#ee4d24"
+            ]
+        },
+        {
+            earthy: true,
+            warm: true,
+            colors: [
+                "#732c32",
+                "#f2b366",
+                "#f28d35",
+                "#a63f03",
+                "#f2f2f2"
+            ]
+        },
+        {
+            earthy: true,
+            cool: true,
+            colors: [
+                "#656871",
+                "#c3ad84",
+                "#89705d",
+                "#838fa5",
+                "#645856"
+            ]
+        },
+        {
+            earthy: true,
+            cool: true,
+            colors: [
+                "#d9ceb2",
+                "#948c75",
+                "#99b2b7",
+                "#d5ded9",
+                "#7a6a53"
+            ]
+        },
+        {
+            earthy: true,
+            cool: true,
+            colors: [
+                "#b4b281",
+                "#9b9559",
+                "#81773c",
+                "#fce78c",
+                "#60481c"
+            ]
+        },
+        {
+            earthy: true,
+            neutral: true,
+            colors: [
+                "#907d48",
+                "#ceba54",
+                "#935b42",
+                "#ca7b49",
+                "#91827e"
+            ]
+        },
+        {
+            earthy: true,
+            neutral: true,
+            colors: [
+                "#594939",
+                "#dfbac1",
+                "#fcd2b9",
+                "#f9bc7d",
+                "#ee9d5e"
+            ]
+        },
+        {
+            earthy: true,
+            neutral: true,
+            colors: [
+                "#ab9e7e",
+                "#f2e5d2",
+                "#eee4e2",
+                "#c5743d",
+                "#a6a2a3"
+            ]
+        },
+        {
+            dark: true,
+            neutral: true,
+            colors: [
+                "#4b0004",
+                "#552c10",
+                "#5d606f",
+                "#c2957e",
+                "#6d4a37"
+            ]
+        },
+        {
+            dark: true,
+            neutral: true,
+            colors: [
+                "#090c15",
+                "#22072a",
+                "#530b57",
+                "#780c3d",
+                "#3438bd"
+            ]
+        },
+        {
+            dark: true,
+            neutral: true,
+            colors: [
+                "#480000",
+                "#601800",
+                "#184848",
+                "#d89048",
+                "#001830"
+            ]
+        },
+        {
+            dark: true,
+            cool: true,
+            colors: [
+                "#000000",
+                "#2a465c",
+                "#316d92",
+                "#031019",
+                "#8d9ea5"
+            ]
+        },
+        {
+            dark: true,
+            cool: true,
+            colors: [
+                "#21043e",
+                "#4a3c74",
+                "#737aa3",
+                "#e8e3db",
+                "#626781"
+            ]
+        },
+        {
+            dark: true,
+            cool: true,
+            colors: [
+                "#080523",
+                "#c0cb9a",
+                "#003a26",
+                "#3c7472",
+                "#56abc0"
+            ]
+        },
+        {
+            dark: true,
+            warm: true,
+            colors: [
+                "#1a0e18",
+                "#5f4b4c",
+                "#5e2c4e",
+                "#a08993",
+                "#d2d1cb"
+            ]
+        },
+        {
+            dark: true,
+            warm: true,
+            colors: [
+                "#b14f34",
+                "#692524",
+                "#2e251c",
+                "#f2b69a",
+                "#080e32"
+            ]
+        },
+        {
+            dark: true,
+            warm: true,
+            colors: [
+                "#160e46",
+                "#5f0f78",
+                "#9a165e",
+                "#c71f2d",
+                "#748997"
+            ]
+        },
+
+
+        
         
     ]
     
 
-
-    // const palettes = [
-    //     {
-    //         pastel: true,
-    //         warm: true,
-    //         colors: [
-    //             "pink",
-    //             "yellow",
-    //             "peachpuff",
-    //             "mint",
-    //             "black"
-    //         ]  
-    //     },
-    //     {
-    //         pastel: true,
-    //         warm: true,
-    //         colors: [
-    //             "red",
-    //             "yellow",
-    //             "peachpuff",
-    //             "red",
-    //             "red"
-    //         ]
-    //     },
-    //     {
-    //         pastel: true,
-    //         cool: true,
-    //         colors: [
-    //             "paleturquoise",
-    //             "lightcyan",
-    //             "palegreen"
-    //         ]
-    //     },
-    //     {
-    //         pastel: true,
-    //         neutral: true,
-    //         colors: [
-    //             "grey",
-    //             "green",
-    //             "grey"
-    //         ]
-    //     },
-    //     {
-    //         pastel: true,
-    //         neutral: true,
-    //         colors: [
-    //             "grey",
-    //             "green",
-    //             "grey"
-    //         ]
-    //     },
-    //     {
-    //         dark: true,
-    //         warm: true,
-    //         colors: [
-    //             "darkred",
-    //             "darkviolet",
-    //             "crimson"
-    //         ]
-    //     },
-    //     {
-    //         dark: true,
-    //         cool: true,
-    //         colors: [
-    //             "midnightblue",
-    //             "indigo",
-    //             "darkolivegreen",
-    //             "red",
-    //             "yellow"
-    //         ]
-    //     }
-
-    // ]
-    
     //  get temperature selection and make new array with just correct temperature
     $(".temp-button").on("click", function(){
         const temp = $(this).attr("id");
@@ -213,11 +340,11 @@ $(function(){
     //this creates the palette and puts it on the page
     function createPalette(orderInArray) {
         let paletteContainer = `
-                    <div class="paletteContainer">
+                    <div class="palette-container">
                         <div class="palette palette${orderInArray}" id="${orderInArray}">
-                            <div class='colorContainer colorContainer0'></div>
-                            <div class='colorContainer colorContainer1'></div>
-                            <div class='colorContainer colorContainer2'></div>
+                            <div class='color-container color-container0'><div class="color-name"></div></div>
+                            <div class='color-container color-container1'><div class="color-name"></div></div>
+                            <div class='color-container color-container2'><div class="color-name"></div></div>
                         </div>
                         <button class="subtract">remove color</button>
                         <button class="add">add color</button>
@@ -240,33 +367,35 @@ $(function(){
         // let colorName;
 
         for (let i = 0; i < 3; i = i + 1) {
-            $(`.palette${orderInArray}`).find(`.colorContainer${i}`).css("background-color", finalArray[orderInArray].colors[i]);
+            $(`.palette${orderInArray}`).find(`.color-container${i}`).css("background-color", finalArray[orderInArray].colors[i]);
 
             // colorName = finalArray[orderInArray].colors[i];
         }
     }
 
-    function rgb2hex(rgb, currentContainer) {
-        rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-        function hex(x) {
-            return ("0" + parseInt(x).toString(16)).slice(-2);
-        }
-        colorNameDisplay = "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
-        console.log(colorNameDisplay)
-        
-        $(currentContainer).html(`<div class="color-name">${colorNameDisplay}</div>`)
 
-    }
+    $(".container").on("mouseover", ".color-container", function(){
 
-
-    $(".container").on("mouseover", ".colorContainer", function(){
         let colorName = $(this).css("background-color");
         let colorContainer = $(this);
         rgb2hex(colorName, colorContainer);
-    })
 
-    $(".container").on("mouseout", ".colorContainer", function(){
-        $(this).find(".color-name").empty();
+        function rgb2hex(rgb, currentContainer) {
+            rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+            function hex(x) {
+                return ("0" + parseInt(x).toString(16)).slice(-2);
+            }
+            colorNameDisplay = "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+            console.log(colorNameDisplay)
+
+            $(currentContainer).find(".color-name").html(colorNameDisplay)
+            $(currentContainer).find(".color-name").addClass("color-visible");
+        }
+        
+    });
+
+    $(".container").on("mouseout", ".color-container", function(){
+        $(this).find(".color-name").removeClass("color-visible");
     })
 
     $(".container").on("click", ".add", function () {
@@ -291,18 +420,16 @@ $(function(){
     function addColors (targetPalette, idNumber, numberOfColors) {
 
         if (numberOfColors == 3) {
-            // $(targetPalette).siblings(".subtract").css("background-color", "pink");
             $(targetPalette).siblings(".subtract").removeClass("button-disabled");
         }
 
         if (numberOfColors === 3) {
-            $(targetPalette).append("<div class='colorContainer colorContainer3'></div>");
-            $(targetPalette).find(".colorContainer3").css("background-color", finalArray[idNumber].colors[3]);
+            $(targetPalette).append(`<div class='color-container color-container3'><div class="color-name"></div></div>`);
+            $(targetPalette).find(".color-container3").css("background-color", finalArray[idNumber].colors[3]);
                     
         } else if (numberOfColors === 4) {
-            $(targetPalette).append("<div class='colorContainer colorContainer4'></div>");
-            $(targetPalette).find(".colorContainer4").css("background-color", finalArray[idNumber].colors[4]);
-            // $(targetPalette).siblings(".add").css("background-color", "grey");
+            $(targetPalette).append(`<div class='color-container color-container4'><div class="color-name"></div></div>`);
+            $(targetPalette).find(".color-container4").css("background-color", finalArray[idNumber].colors[4]);
             $(targetPalette).siblings(".add").addClass("button-disabled");
         }
 
@@ -311,18 +438,15 @@ $(function(){
     function deleteColors (targetPalette, numberOfColors) {
     
         if (numberOfColors === 5) {
-            $(targetPalette).find(".colorContainer4").remove();
-            // $(targetPalette).siblings(".add").css("background-color", "pink");
+            $(targetPalette).find(".color-container4").remove();
             $(targetPalette).siblings(".add").removeClass("button-disabled");
             
         } else if (numberOfColors === 4) {
-            $(targetPalette).find(".colorContainer3").remove(); 
-            // $(targetPalette).siblings(".subtract").css("background-color", "grey");
+            $(targetPalette).find(".color-container3").remove(); 
             $(targetPalette).siblings(".subtract").addClass("button-disabled");
         }
 
         if (numberOfColors == 4) {
-            // $(targetPalette).siblings(".add").css("background-color", "pink");
             $(targetPalette).siblings(".add").removeClass("button-disabled");
         }
 
