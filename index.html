@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Colors</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Chivo|Overpass:300,400" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Chivo|Overpass:300,400|Playfair+Display:400" rel="stylesheet"> 
     <link rel="stylesheet" href="styles/style.css">
 
 </head>
-<body>
+
+<body class="disable-scroll">
 
     <div class="wrapper">
 
@@ -19,14 +20,14 @@
             <h2>some subheading!</h2>
         </header>
 
-        <main class="main-content">
+        <main class="main-content" id="main-content">
 
             <div class="selector-section">
-
+                
                 <div class="button-holder">
                     <form action="" class="temp-buttons">
 
-                        <h3>pick this option!</h3>
+                        <h3>select temperature</h3>
 
                         <input type="radio" class="temp-button visibility-hidden" id="warm" value="warm" name="temp">
                         <label for="warm">warm</label>
@@ -41,7 +42,7 @@
 
                     <form action="" class="theme-buttons">
 
-                        <h3>then pick this option!</h3>
+                        <h3>select theme</h3>
 
                         <input type="radio" class="theme-button visibility-hidden" id="pastel" value="pastel" name="theme">
                         <label for="pastel">pastel</label>
@@ -63,7 +64,10 @@
 
                     </form>
                     
-                    <button class="submit-button">generate palette</button>
+                    <!-- <button class="submit-button">generate palette</button> -->
+                        
+                    <a class="submit-button" href="#main-content">generate palettes</a>
+                    
                 </div>
           
             </div>
@@ -71,7 +75,7 @@
             <div class="palette-section">
                 <div class="container">
 
-                <!-- <div class="paletteContainer">
+                <!-- <div class="paletteontainer">
                         <div class="palette">
 
                         </div>
@@ -80,21 +84,13 @@
                 </div>
             </div>
 
-           
-            
-
-
-        </main>
-
-        
-
-        
-
-        
+        </main>    
 
     </div>
 
     <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
 
     <script src="scripts/script.js"></script>
     

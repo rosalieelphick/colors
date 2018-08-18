@@ -316,7 +316,8 @@ $(function(){
     })
 
     function submitButton(theme) {
-        $(".submit-button").on("click", function () {
+        $(".submit-button").on("click", function (e) {
+            
             $(".container").empty();
             createFinalArray(theme);
         })
@@ -340,7 +341,7 @@ $(function(){
     //this creates the palette and puts it on the page
     function createPalette(orderInArray) {
         let paletteContainer = `
-                    <div class="palette-container">
+                    <div class="palette-holder">
                         <div class="palette palette${orderInArray}" id="${orderInArray}">
                             <div class='color-container color-container0'><div class="color-name"></div></div>
                             <div class='color-container color-container1'><div class="color-name"></div></div>
@@ -350,8 +351,21 @@ $(function(){
                         <button class="add">add color</button>
 
                     </div>`
+
         $(".container").append(paletteContainer);
         $(".subtract").addClass("button-disabled");
+
+
+        
+        window.sr = ScrollReveal();
+        sr.reveal('.palette-holder', {
+            origin: "bottom",
+            delay: 250,
+            distance: "100px"
+
+        });
+ 
+
     }
 
     // this defines what the colors are 

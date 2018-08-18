@@ -132,8 +132,14 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
+html {
+  scroll-behavior: smooth; }
+
 h1 {
-  font-family: 'Chivo', sans-serif; }
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+  font-size: 4rem;
+  color: grey; }
 
 html {
   font-family: 'Overpass', sans-serif;
@@ -164,9 +170,18 @@ html {
   justify-content: space-between; }
 
 header {
-  border-bottom: solid 2px black;
-  margin-bottom: 50px; }
+  border-bottom: solid 2px black; }
 
+h3::before,
+h3::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: gainsboro;
+  margin: 10px; }
+
+.submit-button,
 button,
 label {
   background-color: white;
@@ -178,6 +193,27 @@ label {
   -o-transition: all 0.2s;
   transition: all 0.2s; }
 
+button:hover,
+label:hover {
+  background-color: gainsboro; }
+
+.submit-button {
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: calc(100% - 10px);
+  margin: 20px 5px 5px 5px;
+  background-color: gainsboro;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s; }
+
+.submit-button:hover {
+  background-color: #979aaa;
+  letter-spacing: 1px;
+  color: white; }
+
 .button-disabled {
   background-color: whitesmoke;
   color: gainsboro;
@@ -185,19 +221,18 @@ label {
   padding: 10px 15px;
   pointer-events: none; }
 
-.button-selected {
-  background-color: pink; }
-
 .selector-section {
   -ms-flex-preferred-size: 320px;
   flex-basis: 320px;
   -ms-flex-negative: 0;
-  flex-shrink: 0;
-  position: relative; }
+  flex-shrink: 0; }
 
 .button-holder {
+  padding-top: 20px;
   width: 320px;
-  position: fixed; }
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0; }
 
 .temp-buttons,
 .theme-buttons {
@@ -224,32 +259,14 @@ label {
     flex-basis: 100%;
     text-align: center; }
 
-button:hover {
-  background-color: gainsboro; }
-
-label:hover {
-  background-color: gainsboro; }
-
 input[type="radio"]:checked + label {
   background-color: #979aaa;
   color: white;
   letter-spacing: 1px;
   font-weight: 400; }
 
-.submit-button {
-  width: calc(100% - 10px);
-  margin: 20px 5px 5px 5px;
-  background-color: gainsboro;
-  -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s; }
-
-.submit-button:hover {
-  background-color: #979aaa;
-  letter-spacing: 1px;
-  color: white; }
-
 .palette-section {
+  width: 100%;
   -ms-flex-preferred-size: 300px;
   flex-basis: 300px;
   -webkit-box-flex: 1;
@@ -259,15 +276,14 @@ input[type="radio"]:checked + label {
   display: -ms-flexbox;
   display: flex;
   margin-left: 30px;
-  margin-top: 66px; }
+  margin-top: 28px; }
 
-.palette-section .container {
+.container {
+  width: 100%;
+  padding-top: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%; }
-
-.container {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
@@ -275,14 +291,12 @@ input[type="radio"]:checked + label {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap; }
 
-.palette-container {
-  width: 100%;
+.palette-holder {
   margin-bottom: 30px;
-  position: relative;
   text-align: right; }
 
 .palette {
-  height: 290px;
+  height: 400px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -294,7 +308,7 @@ input[type="radio"]:checked + label {
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
-  height: 279px; }
+  height: 400px; }
 
 .color-name {
   width: 100%;
@@ -309,3 +323,24 @@ input[type="radio"]:checked + label {
 
 .color-visible {
   opacity: 1; }
+
+@media (max-width: 1100px) {
+  .wrapper {
+    width: 90%; } }
+
+@media (max-width: 800px) {
+  .selector-section,
+  .palette-section {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+  h1,
+  h2 {
+    text-align: center; }
+  .palette-section {
+    margin: 20px 0; } }
