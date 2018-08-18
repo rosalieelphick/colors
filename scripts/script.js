@@ -1,4 +1,4 @@
-$(function(){
+$(function () {
 
     const palettes = [
         // pastel palettes
@@ -290,17 +290,16 @@ $(function(){
         },
 
 
-        
-        
+
+
     ]
-    
+
 
     //  get temperature selection and make new array with just correct temperature
-    $(".temp-button").on("click", function(){
+    $(".temp-button").on("click", function () {
         const temp = $(this).attr("id");
-        console.log(this)
         getTemperatureSelection(temp);
-        
+
     });
 
     function getTemperatureSelection(temperatureSelection) {
@@ -310,27 +309,31 @@ $(function(){
     }
 
     // get theme selection and create final array with both temp and theme
-    $(".theme-button").on("click", function(){
+    $(".theme-button").on("click", function () {
         const theme = $(this).attr("id");
         submitButton(theme);
     })
 
     function submitButton(theme) {
         $(".submit-button").on("click", function (e) {
-            
+
             $(".container").empty();
             createFinalArray(theme);
+            $(".up-arrow").addClass("up-arrow-display");
+            $("footer").css("display", "block");
+
+            // let position = $(".main-content").position();
         })
     }
 
     // create final array with just the required palettes
     function createFinalArray(themeSelection) {
 
-        finalArray = tempArray.filter(function(item){
+        finalArray = tempArray.filter(function (item) {
             return item[themeSelection];
         })
 
-        finalArray.forEach(function(item){
+        finalArray.forEach(function (item) {
             arrayOrder = finalArray.indexOf(item);
             createPalette(arrayOrder);
             defineColors(arrayOrder);
@@ -355,60 +358,50 @@ $(function(){
         $(".container").append(paletteContainer);
         $(".subtract").addClass("button-disabled");
 
+        // window.sr = ScrollReveal();
+        // sr.reveal('.palette-holder', {
+        //     origin: "bottom",
+        //     delay: 250,
+        //     distance: "100px"
 
-        
-        window.sr = ScrollReveal();
-        sr.reveal('.palette-holder', {
-            origin: "bottom",
-            delay: 250,
-            distance: "100px"
-
-        });
- 
-
+        // });
     }
 
     // this defines what the colors are 
     // and adds them to the dom
 
     function defineColors(orderInArray) {
-
-        color0 = finalArray[orderInArray].colors[0];
-        color1 = finalArray[orderInArray].colors[1];
-        color2 = finalArray[orderInArray].colors[2];
-
-        // console.log(color0, color1, color2)
-        // let colorName;
-
+        // color0 = finalArray[orderInArray].colors[0];
         for (let i = 0; i < 3; i = i + 1) {
             $(`.palette${orderInArray}`).find(`.color-container${i}`).css("background-color", finalArray[orderInArray].colors[i]);
-
-            // colorName = finalArray[orderInArray].colors[i];
         }
     }
 
-
-    $(".container").on("mouseover", ".color-container", function(){
-
+    $(".container").on("mouseover", ".color-container", function () {
         let colorName = $(this).css("background-color");
         let colorContainer = $(this);
         rgb2hex(colorName, colorContainer);
-
-        function rgb2hex(rgb, currentContainer) {
-            rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-            function hex(x) {
-                return ("0" + parseInt(x).toString(16)).slice(-2);
-            }
-            colorNameDisplay = "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
-            console.log(colorNameDisplay)
-
-            $(currentContainer).find(".color-name").html(colorNameDisplay)
-            $(currentContainer).find(".color-name").addClass("color-visible");
-        }
-        
     });
 
-    $(".container").on("mouseout", ".color-container", function(){
+    $(".container").on("touchstart", ".color-container", function () {
+        let colorName = $(this).css("background-color");
+        let colorContainer = $(this);
+        rgb2hex(colorName, colorContainer);
+    });
+
+
+    function rgb2hex(rgb, currentContainer) {
+        rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+        function hex(x) {
+            return ("0" + parseInt(x).toString(16)).slice(-2);
+        }
+        colorNameDisplay = "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+
+        $(currentContainer).find(".color-name").html(colorNameDisplay)
+        $(currentContainer).find(".color-name").addClass("color-visible");
+    }
+
+    $(".container").on("mouseout", ".color-container", function () {
         $(this).find(".color-name").removeClass("color-visible");
     })
 
@@ -431,7 +424,7 @@ $(function(){
         deleteColors(selectedPalette, colorNumber);
     });
 
-    function addColors (targetPalette, idNumber, numberOfColors) {
+    function addColors(targetPalette, idNumber, numberOfColors) {
 
         if (numberOfColors == 3) {
             $(targetPalette).siblings(".subtract").removeClass("button-disabled");
@@ -440,23 +433,22 @@ $(function(){
         if (numberOfColors === 3) {
             $(targetPalette).append(`<div class='color-container color-container3'><div class="color-name"></div></div>`);
             $(targetPalette).find(".color-container3").css("background-color", finalArray[idNumber].colors[3]);
-                    
+
         } else if (numberOfColors === 4) {
             $(targetPalette).append(`<div class='color-container color-container4'><div class="color-name"></div></div>`);
             $(targetPalette).find(".color-container4").css("background-color", finalArray[idNumber].colors[4]);
             $(targetPalette).siblings(".add").addClass("button-disabled");
         }
-
     };
 
-    function deleteColors (targetPalette, numberOfColors) {
-    
+    function deleteColors(targetPalette, numberOfColors) {
+
         if (numberOfColors === 5) {
             $(targetPalette).find(".color-container4").remove();
             $(targetPalette).siblings(".add").removeClass("button-disabled");
-            
+
         } else if (numberOfColors === 4) {
-            $(targetPalette).find(".color-container3").remove(); 
+            $(targetPalette).find(".color-container3").remove();
             $(targetPalette).siblings(".subtract").addClass("button-disabled");
         }
 

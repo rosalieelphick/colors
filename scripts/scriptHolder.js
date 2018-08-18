@@ -289,13 +289,15 @@ $(function () {
             ]
         },
 
+
+
+
     ]
 
 
     //  get temperature selection and make new array with just correct temperature
     $(".temp-button").on("click", function () {
         const temp = $(this).attr("id");
-        console.log(this)
         getTemperatureSelection(temp);
 
     });
@@ -313,9 +315,14 @@ $(function () {
     })
 
     function submitButton(theme) {
-        $(".submit-button").on("click", function () {
+        $(".submit-button").on("click", function (e) {
+
             $(".container").empty();
             createFinalArray(theme);
+            $(".up-arrow").addClass("up-arrow-display");
+            $("footer").css("display", "block");
+
+            // let position = $(".main-content").position();
         })
     }
 
@@ -337,7 +344,7 @@ $(function () {
     //this creates the palette and puts it on the page
     function createPalette(orderInArray) {
         let paletteContainer = `
-                    <div class="palette-container">
+                    <div class="palette-holder">
                         <div class="palette palette${orderInArray}" id="${orderInArray}">
                             <div class='color-container color-container0'><div class="color-name"></div></div>
                             <div class='color-container color-container1'><div class="color-name"></div></div>
@@ -347,26 +354,26 @@ $(function () {
                         <button class="add">add color</button>
 
                     </div>`
+
         $(".container").append(paletteContainer);
         $(".subtract").addClass("button-disabled");
+
+        // window.sr = ScrollReveal();
+        // sr.reveal('.palette-holder', {
+        //     origin: "bottom",
+        //     delay: 250,
+        //     distance: "100px"
+
+        // });
     }
 
     // this defines what the colors are 
     // and adds them to the dom
 
     function defineColors(orderInArray) {
-
-        color0 = finalArray[orderInArray].colors[0];
-        color1 = finalArray[orderInArray].colors[1];
-        color2 = finalArray[orderInArray].colors[2];
-
-        // console.log(color0, color1, color2)
-        // let colorName;
-
+        // color0 = finalArray[orderInArray].colors[0];
         for (let i = 0; i < 3; i = i + 1) {
             $(`.palette${orderInArray}`).find(`.color-container${i}`).css("background-color", finalArray[orderInArray].colors[i]);
-
-            // colorName = finalArray[orderInArray].colors[i];
         }
     }
 
@@ -383,7 +390,6 @@ $(function () {
                 return ("0" + parseInt(x).toString(16)).slice(-2);
             }
             colorNameDisplay = "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
-            console.log(colorNameDisplay)
 
             $(currentContainer).find(".color-name").html(colorNameDisplay)
             $(currentContainer).find(".color-name").addClass("color-visible");
@@ -429,7 +435,6 @@ $(function () {
             $(targetPalette).find(".color-container4").css("background-color", finalArray[idNumber].colors[4]);
             $(targetPalette).siblings(".add").addClass("button-disabled");
         }
-
     };
 
     function deleteColors(targetPalette, numberOfColors) {
