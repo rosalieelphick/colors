@@ -139,7 +139,12 @@ h1 {
   font-family: 'Playfair Display', serif;
   margin: 0;
   font-size: 4rem;
-  color: grey; }
+  padding-top: 50px;
+  padding-bottom: 20px; }
+
+h2 {
+  font-weight: 300;
+  margin-top: 0; }
 
 html {
   font-family: 'Overpass', sans-serif;
@@ -171,6 +176,10 @@ html {
 
 header {
   border-bottom: solid 2px black; }
+
+img {
+  width: 400px;
+  padding: 20px 0; }
 
 h3::before,
 h3::after {
@@ -275,7 +284,9 @@ input[type="radio"]:checked + label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-left: 30px;
+  margin-left: 30px; }
+
+.palette-section-padding {
   padding-top: 28px;
   padding-bottom: 44px; }
 
@@ -338,6 +349,12 @@ footer {
   display: none;
   margin-top: 44px; }
 
+footer p {
+  text-transform: uppercase;
+  font-weight: 400;
+  color: white;
+  text-align: center; }
+
 @media (max-width: 1000px) {
   .selector-section,
   .palette-section {
@@ -359,7 +376,14 @@ footer {
     width: 70px;
     height: 70px;
     z-index: 10;
-    margin: 0 auto; } }
+    margin: 0 auto; }
+  .logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; } }
 
 @media (max-width: 475px) {
   .wrapper {
@@ -368,7 +392,9 @@ footer {
   .color-container {
     height: 300px; }
   .palette-holder {
-    text-align: center; } }
+    text-align: center; }
+  h2 {
+    font-size: 1.2rem; } }
 
 @media (max-width: 390px) {
   .color-name {

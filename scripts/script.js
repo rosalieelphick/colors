@@ -294,6 +294,13 @@ $(function () {
 
     ]
 
+    animate();
+    
+    function animate() {
+
+        $(".bar").addClass("bar-end");
+    }
+
 
     //  get temperature selection and make new array with just correct temperature
     $(".temp-button").on("click", function () {
@@ -357,14 +364,7 @@ $(function () {
 
         $(".container").append(paletteContainer);
         $(".subtract").addClass("button-disabled");
-
-        // window.sr = ScrollReveal();
-        // sr.reveal('.palette-holder', {
-        //     origin: "bottom",
-        //     delay: 250,
-        //     distance: "100px"
-
-        // });
+        $(".palette-section").addClass("palette-section-padding");
     }
 
     // this defines what the colors are 

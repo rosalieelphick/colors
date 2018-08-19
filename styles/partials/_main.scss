@@ -4,8 +4,15 @@
     justify-content: space-between; 
 }
 
+// header
+
 header {
     border-bottom: solid 2px black;
+}
+
+img {
+    width: 400px;
+    padding: 20px 0;
 }
 
 h3::before,
@@ -109,6 +116,9 @@ input[type="radio"]:checked+label {
     flex-grow: 1;
     display: flex;
     margin-left: 30px;
+}
+
+.palette-section-padding {
     padding-top: 28px;
     padding-bottom: 44px;
 }
@@ -138,9 +148,6 @@ input[type="radio"]:checked+label {
     height: 400px;
 }
 
-// .color-container:hover > .color-name {
-//     background-color: pink;
-// }
 
 .color-name {
     width: 100%;
@@ -173,6 +180,13 @@ footer {
     margin-top: 44px;
 }
 
+footer p {
+    text-transform: uppercase;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+}
+
 @media (max-width: 1000px) {
 
     .selector-section,
@@ -199,7 +213,12 @@ footer {
         margin: 0 auto;
     }
 
+    .logo {
+        display: flex;
+        justify-content: center;
+    }
 }
+
 
 @media (max-width: 475px) {
     .wrapper {
@@ -213,6 +232,10 @@ footer {
 
     .palette-holder {
         text-align: center;
+    }
+
+    h2 {
+        font-size: 1.2rem;
     }
 }
 
